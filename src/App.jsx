@@ -3,7 +3,9 @@ import { Navigate, Routes, Route } from 'react-router-dom'
 import AnnouncementBar from './components/AnnouncementBar'
 import NavHeader from './components/NavHeader'
 import Footer from './components/Footer'
+import FloatingCart from './components/FloatingCart'
 import PageLoader from './components/PageLoader'
+import CartProvider from './context/CartProvider'
 // import AchaFacts from './components/AchaFacts'
 
 // Pages
@@ -20,7 +22,7 @@ export default function App() {
   }, [])
 
   return (
-    <>
+    <CartProvider>
       <PageLoader visible={loading} />
       <AnnouncementBar />
       <NavHeader />
@@ -34,7 +36,8 @@ export default function App() {
         <Route path="/register"    element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
+      <FloatingCart />
       {/* <AchaFacts /> */}
-    </>
+    </CartProvider>
   )
 }

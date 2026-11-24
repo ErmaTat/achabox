@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { ShoppingBagIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import { useInView } from '../hooks/useInView'
+import useCart from '../hooks/useCart'
+import { createWhatsAppOrderUrl } from '../utils/whatsappOrder'
 import GallerySection from './GallerySection'
 import RecipeSection from './RecipeSection'
 import UpcomingProductsSection from './UpcomingProductsSection'
@@ -15,9 +17,9 @@ const PERKS = [
 ]
 
 const SIZES = [
-  { label: '250 g', price: '₦1,200', image: pouch250gImage },
-  { label: '500 g', price: '₦2,500', image: pouch500gImage },
-  { label: '1 kg',  price: '₦5,000', image: pouch1kgImage },
+  { label: '250 g', price: '₦1,200', amount: 1200, image: pouch250gImage },
+  { label: '500 g', price: '₦2,500', amount: 2500, image: pouch500gImage },
+  { label: '1 kg',  price: '₦5,000', amount: 5000, image: pouch1kgImage },
 ]
 
 function Reveal({ children, className = '', delay = '0s', direction = 'up' }) {
@@ -33,8 +35,16 @@ function Reveal({ children, className = '', delay = '0s', direction = 'up' }) {
 export default function ProductsSection() {
   const [selectedSize, setSelectedSize] = useState(0)
   const [added, setAdded] = useState(false)
+  const { addItem } = useCart()
+  const selectedProduct = SIZES[selectedSize]
 
   function handleAdd() {
+    addItem({
+      id: `acha-fonio-${selectedProduct.label}`,
+      name: 'Acha Fonio',
+      size: selectedProduct.label,
+      price: selectedProduct.amount,
+    })
     setAdded(true)
     setTimeout(() => setAdded(false), 2000)
   }
@@ -149,7 +159,14 @@ export default function ProductsSection() {
                   {added ? 'Added to bag!' : 'Add to Bag'}
                 </button>
                 <a
-                  href="#shop"
+                  href={createWhatsAppOrderUrl([{
+                    name: 'Acha Fonio',
+                    size: selectedProduct.label,
+                    price: selectedProduct.amount,
+                    quantity: 1,
+                  }])}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center border-2 border-[#4A2A1A]/20 hover:border-[#4A2A1A] text-[#4A2A1A] hover:bg-[#4A2A1A] hover:text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 text-base hover:-translate-y-0.5 active:translate-y-0"
                 >
                   Buy Now
