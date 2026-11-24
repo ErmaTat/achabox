@@ -26,7 +26,7 @@ export default function Navbar() {
 
           {/* Wordmark */}
           <a href="/" className="select-none text-[#4A2A1A]">
-            <BrandLogo className="text-2xl" />
+            <BrandLogo className="h-12" />
           </a>
 
           {/* Center nav — desktop */}

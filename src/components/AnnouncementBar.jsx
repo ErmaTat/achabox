@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 
 const SLIDES = [
   {
-    text: 'Free delivery on orders over $50 — Shop premium Acha fonio today!',
+    text: 'Free delivery on qualifying orders — Shop premium Acha fonio today!',
     cta: 'Shop Now',
     href: '#shop',
   },

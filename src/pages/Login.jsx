@@ -92,7 +92,7 @@ export default function Login() {
 
           {/* Logo */}
           <Link to="/" className="mx-auto w-fit text-[#3D2418]">
-            <BrandLogo className="text-2xl" />
+            <BrandLogo className="h-12" />
           </Link>
 
           {/* Card */}

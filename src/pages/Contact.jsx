@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
   ArrowRightIcon,
-  ChatBubbleLeftRightIcon,
   ClockIcon,
   EnvelopeIcon,
   MapPinIcon,
@@ -9,9 +8,6 @@ import {
 } from '@heroicons/react/24/outline'
 import BrandLogo from '../components/BrandLogo'
 import { useInView } from '../hooks/useInView'
-import fonioWinnowingImage from '../assets/story/fonio-winnowing.webp'
-import marketGrainsImage from '../assets/story/market-grains.webp'
-import healthyGrainBowlImage from '../assets/story/healthy-grain-bowl.webp'
 
 function ScrollTop() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -31,19 +27,19 @@ const CONTACT_METHODS = [
   {
     icon: EnvelopeIcon,
     label: 'Email',
-    value: 'hello@achabox.co.uk',
-    href: 'mailto:hello@achabox.co.uk',
+    value: 'hello@acahabox.com',
+    href: 'mailto:hello@acahabox.com',
   },
   {
     icon: PhoneIcon,
     label: 'Phone',
-    value: '+44 20 0000 0000',
-    href: 'tel:+442000000000',
+    value: '08113579865',
+    href: 'tel:+2348113579865',
   },
   {
     icon: MapPinIcon,
-    label: 'Base',
-    value: 'London, United Kingdom',
+    label: 'Address',
+    value: 'No. 20 FDA Road, Jos, Plateau State',
     href: null,
   },
   {
@@ -59,6 +55,7 @@ const TOPICS = [
   'Wholesale',
   'Press',
   'Partnerships',
+  'Other',
 ]
 
 export default function Contact() {
@@ -66,7 +63,17 @@ export default function Contact() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    event.currentTarget.reset()
+    const formData = new FormData(event.currentTarget)
+    const topic = formData.get('topic')
+    const body = [
+      `Name: ${formData.get('name')}`,
+      `Email: ${formData.get('email')}`,
+      `Topic: ${topic}`,
+      '',
+      formData.get('message'),
+    ].join('\n')
+
+    window.location.href = `mailto:hello@acahabox.com?subject=${encodeURIComponent(`AchaBox enquiry: ${topic}`)}&body=${encodeURIComponent(body)}`
     setSubmitted(true)
   }
 
@@ -84,9 +91,8 @@ export default function Contact() {
                   </p>
                   <h1 className="text-[#3D2418] font-bold text-[2.8rem] sm:text-[3.6rem] lg:text-[4.2rem] leading-[1.04] tracking-tight">
                     Let&apos;s talk<br />
-                    <span className="inline-flex items-baseline text-[#F97316]">
-                      <BrandLogo />
-                      <span>.</span>
+                    <span className="mt-3 block">
+                      <BrandLogo className="h-16" />
                     </span>
                   </h1>
                 </Reveal>
@@ -195,7 +201,7 @@ export default function Contact() {
 
                   {submitted && (
                     <p className="mt-4 rounded-lg bg-[#EAF0E4] px-4 py-3 text-sm font-medium text-[#425A32]">
-                      Thanks. Your message is ready for the AchaBox team.
+                      Your email app should open with a draft addressed to hello@acahabox.com. If it doesn&apos;t, email us directly.
                     </p>
                   )}
                 </form>
@@ -204,56 +210,6 @@ export default function Contact() {
           </div>
         </section>
 
-        <section className="border-t border-[#F0EBE3] bg-[#FAFAF7]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-center">
-              <Reveal>
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] bg-[#3D2418]">
-                  <img
-                    src={fonioWinnowingImage}
-                    alt="Fonio being processed by hand"
-                    className="h-full w-full object-cover opacity-[0.82]"
-                    style={{ objectPosition: '52% center' }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#3D2418]/65 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <p className="text-white text-2xl font-bold leading-tight">
-                      From farmers to modern kitchens.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#F0EBE3]">
-                {[
-                  {
-                    icon: ChatBubbleLeftRightIcon,
-                    title: 'Wholesale',
-                    body: 'Talk to us about stocking AchaBox for retail, foodservice, or hospitality.',
-                    image: marketGrainsImage,
-                  },
-                  {
-                    icon: EnvelopeIcon,
-                    title: 'Press',
-                    body: 'For media requests, product information, or founder story enquiries.',
-                    image: healthyGrainBowlImage,
-                  },
-                ].map(({ icon: Icon, title, body, image }) => (
-                  <Reveal key={title} className="bg-white">
-                    <div className="flex h-full flex-col gap-5 p-7">
-                      <div className="relative aspect-[16/9] overflow-hidden rounded-md bg-[#F3E6CF]">
-                        <img src={image} alt="" className="h-full w-full object-cover" />
-                      </div>
-                      <Icon className="h-6 w-6 text-[#F97316]" />
-                      <p className="text-lg font-bold text-[#3D2418]">{title}</p>
-                      <p className="text-sm leading-relaxed text-[#6B625B]">{body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
     </>
   )

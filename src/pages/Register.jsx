@@ -143,7 +143,7 @@ export default function Register() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#3D2418]/88 via-[#3D2418]/36 to-transparent" />
             <div className="absolute left-8 right-8 top-8 flex items-center justify-between">
               <Link to="/" className="text-white">
-                <BrandLogo className="text-2xl" />
+                <BrandLogo className="h-12" />
               </Link>
               <span className="rounded-full bg-white/12 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white/72 backdrop-blur">
                 Member account
@@ -176,7 +176,7 @@ export default function Register() {
             <div className="mx-auto flex max-w-xl flex-col gap-8">
               <div className="flex flex-col gap-2">
                 <Link to="/" className="w-fit text-[#3D2418] lg:hidden">
-                  <BrandLogo className="text-2xl" />
+                  <BrandLogo className="h-12" />
                 </Link>
                 <p className="text-[10px] font-bold uppercase tracking-[0.20em] text-[#F97316]">
                   Create account

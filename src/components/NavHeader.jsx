@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { UserIcon } from '@heroicons/react/24/outline'
 import BrandLogo from './BrandLogo'
 
 const NAV_LINKS = [
   { label: 'Home',      href: '/',           isRoute: true  },
   { label: 'Our Story', href: '/our-story',  isRoute: true  },
-  { label: 'Benefits',  href: '/#benefits',  isRoute: false },
-  { label: 'Recipes',   href: '/dashboard/recipes', isRoute: true },
+  { label: 'Gallery',   href: `${import.meta.env.BASE_URL}#gallery`, isRoute: false },
+  { label: 'Recipes',   href: `${import.meta.env.BASE_URL}#recipes`, isRoute: false },
   { label: 'Contact',   href: '/contact',    isRoute: true  },
 ]
 
@@ -23,20 +22,6 @@ function HamburgerIcon() {
     <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
     </svg>
-  )
-}
-
-function LoginButton({ mobile = false }) {
-  return (
-    <Link
-      to="/login"
-      className={`flex items-center gap-2 text-sm font-medium text-[#4A2A1A] hover:text-[#F97316] transition-colors duration-200 ${
-        mobile ? 'px-0 py-2' : 'px-3 py-2'
-      }`}
-    >
-      <UserIcon className="w-5 h-5 shrink-0" />
-      <span>Login</span>
-    </Link>
   )
 }
 
@@ -70,7 +55,7 @@ export default function NavHeader() {
 
           {/* Logo */}
           <Link to="/" className="shrink-0 select-none text-[#4A2A1A]">
-            <BrandLogo className="text-2xl" />
+            <BrandLogo className="h-12" />
           </Link>
 
           {/* Center links — desktop */}
@@ -90,8 +75,6 @@ export default function NavHeader() {
 
           {/* Right — desktop */}
           <div className="hidden md:flex items-center gap-1 shrink-0">
-            <LoginButton />
-            <span className="w-px h-5 bg-[#E8E0D5] mx-2" />
             <a
               href={`${homeUrl}#shop`}
               className="bg-[#F97316] hover:bg-[#EA580C] text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
@@ -124,8 +107,7 @@ export default function NavHeader() {
               onClick={() => setMobileOpen(false)}
             />
           ))}
-          <div className="flex items-center justify-between pt-3 mt-1">
-            <LoginButton mobile />
+          <div className="flex justify-end pt-3 mt-1">
             <a
               href={`${homeUrl}#shop`}
               className="bg-[#F97316] hover:bg-[#EA580C] text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors duration-200"

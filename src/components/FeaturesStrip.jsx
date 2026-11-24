@@ -7,7 +7,7 @@ import {
 import { useInView } from '../hooks/useInView'
 
 const FEATURES = [
-  { Icon: TruckIcon,      title: 'Free Delivery',    desc: 'On all orders over $50'                },
+  { Icon: TruckIcon,      title: 'Free Delivery',    desc: 'Available on qualifying orders'        },
   { Icon: ShieldCheckIcon, title: '100% Certified',  desc: 'Gluten-free & non-GMO verified'        },
   { Icon: SparklesIcon,   title: 'Ancient Heritage',  desc: 'Grown for 5,000 years in West Africa'  },
   { Icon: ClockIcon,      title: 'Ready in 5 Min',   desc: 'Fastest-cooking grain on the planet'   },

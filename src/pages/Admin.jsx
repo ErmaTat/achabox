@@ -31,7 +31,7 @@ const ADMIN_NAV = [
 ]
 
 const KPIS = [
-  { label: 'Revenue', value: '$18,420', change: '+18.4%', icon: BanknotesIcon },
+  { label: 'Revenue', value: '₦18,420', change: '+18.4%', icon: BanknotesIcon },
   { label: 'Orders', value: '428', change: '+12.1%', icon: ShoppingBagIcon },
   { label: 'Customers', value: '3,842', change: '+9.8%', icon: UserGroupIcon },
   { label: 'Conversion', value: '4.7%', change: '+0.6%', icon: ArrowTrendingUpIcon },
@@ -75,17 +75,17 @@ const USERS = [
 ]
 
 const ORDERS = [
-  { id: 'AB-2048', customer: 'Amara Okafor', status: 'Preparing', total: '$34.00', fulfilment: 'Pack today' },
-  { id: 'AB-2047', customer: 'Daniel Reed', status: 'Wholesale', total: '$480.00', fulfilment: 'Invoice sent' },
-  { id: 'AB-2046', customer: 'Nia Carter', status: 'Shipped', total: '$24.00', fulfilment: 'In transit' },
-  { id: 'AB-2045', customer: 'Lena Smith', status: 'Delivered', total: '$58.00', fulfilment: 'Complete' },
+  { id: 'AB-2048', customer: 'Amara Okafor', status: 'Preparing', total: '₦34.00', fulfilment: 'Pack today' },
+  { id: 'AB-2047', customer: 'Daniel Reed', status: 'Wholesale', total: '₦480.00', fulfilment: 'Invoice sent' },
+  { id: 'AB-2046', customer: 'Nia Carter', status: 'Shipped', total: '₦24.00', fulfilment: 'In transit' },
+  { id: 'AB-2045', customer: 'Lena Smith', status: 'Delivered', total: '₦58.00', fulfilment: 'Complete' },
 ]
 
 const PAYMENTS = [
-  { id: 'PAY-7102', source: 'Stripe', status: 'Paid', amount: '$34.00', date: 'May 22' },
-  { id: 'PAY-7101', source: 'Manual invoice', status: 'Pending', amount: '$480.00', date: 'May 22' },
-  { id: 'PAY-7098', source: 'PayPal', status: 'Paid', amount: '$24.00', date: 'May 21' },
-  { id: 'PAY-7094', source: 'Stripe', status: 'Refunded', amount: '$18.00', date: 'May 20' },
+  { id: 'PAY-7102', source: 'Stripe', status: 'Paid', amount: '₦34.00', date: 'May 22' },
+  { id: 'PAY-7101', source: 'Manual invoice', status: 'Pending', amount: '₦480.00', date: 'May 22' },
+  { id: 'PAY-7098', source: 'PayPal', status: 'Paid', amount: '₦24.00', date: 'May 21' },
+  { id: 'PAY-7094', source: 'Stripe', status: 'Refunded', amount: '₦18.00', date: 'May 20' },
 ]
 
 function ScrollTop() {
@@ -498,7 +498,7 @@ function PaymentsManager() {
         <PaymentDonut />
         <div className="mt-6 rounded-lg bg-[#FAFAF7] p-4">
           <p className="text-sm font-bold text-[#3D2418]">Next payout</p>
-          <p className="mt-1 text-2xl font-bold text-[#F97316]">$4,820.40</p>
+          <p className="mt-1 text-2xl font-bold text-[#F97316]">₦4,820.40</p>
           <p className="mt-1 text-sm text-[#6B625B]">Estimated May 24, 2026</p>
         </div>
       </Panel>

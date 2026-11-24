@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Navigate, Routes, Route } from 'react-router-dom'
 import AnnouncementBar from './components/AnnouncementBar'
 import NavHeader from './components/NavHeader'
 import Footer from './components/Footer'
@@ -9,11 +9,7 @@ import PageLoader from './components/PageLoader'
 // Pages
 import Home from './pages/Home'
 import OurStory from './pages/OurStory'
-import Login from './pages/Login'
-import Register from './pages/Register'
 import Contact from './pages/Contact'
-import Dashboard from './pages/Dashboard'
-import Admin from './pages/Admin'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
@@ -32,12 +28,10 @@ export default function App() {
         <Route path="/"           element={<Home />} />
         <Route path="/our-story"  element={<OurStory />} />
         <Route path="/contact"    element={<Contact />} />
-        <Route path="/dashboard"  element={<Dashboard />} />
-        <Route path="/dashboard/:section" element={<Dashboard />} />
-        <Route path="/admin"      element={<Admin />} />
-        <Route path="/admin/:section" element={<Admin />} />
-        <Route path="/login"      element={<Login />} />
-        <Route path="/register"   element={<Register />} />
+        <Route path="/dashboard/*" element={<Navigate to="/" replace />} />
+        <Route path="/admin/*"     element={<Navigate to="/" replace />} />
+        <Route path="/login"       element={<Navigate to="/" replace />} />
+        <Route path="/register"    element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
       {/* <AchaFacts /> */}

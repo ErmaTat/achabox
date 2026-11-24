@@ -7,7 +7,7 @@ export default function PageLoader({ visible }) {
         visible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <BrandLogo className="mb-8 select-none text-3xl text-[#4A2A1A]" />
+      <BrandLogo className="mb-8 h-20 select-none" />
 
       {/* Animated grain dots */}
       <div className="flex items-center gap-2">

@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import { ShoppingBagIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 import { useInView } from '../hooks/useInView'
+import GallerySection from './GallerySection'
+import RecipeSection from './RecipeSection'
+import UpcomingProductsSection from './UpcomingProductsSection'
+import pouch250gImage from '../assets/products/fonio-pouch-250g.png?format=webp&quality=85'
+import pouch500gImage from '../assets/products/fonio-pouch-500g.png?format=webp&quality=85'
+import pouch1kgImage from '../assets/products/fonio-pouch-1kg.png?format=webp&quality=85'
 
 const PERKS = [
   'Naturally Gluten Free',
@@ -9,9 +15,9 @@ const PERKS = [
 ]
 
 const SIZES = [
-  { label: '500 g', price: '£7.99' },
-  { label: '1 kg',  price: '£13.99' },
-  { label: '2 kg',  price: '£24.99' },
+  { label: '250 g', price: '₦1,200', image: pouch250gImage },
+  { label: '500 g', price: '₦2,500', image: pouch500gImage },
+  { label: '1 kg',  price: '₦5,000', image: pouch1kgImage },
 ]
 
 function Reveal({ children, className = '', delay = '0s', direction = 'up' }) {
@@ -34,8 +40,9 @@ export default function ProductsSection() {
   }
 
   return (
-    <section id="shop" className="bg-white border-t border-[#F0EBE3]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+    <>
+      <section id="shop" className="bg-white border-t border-[#F0EBE3]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
 
         {/* Section label */}
         <Reveal className="text-center mb-14">
@@ -54,21 +61,11 @@ export default function ProductsSection() {
               className="relative w-full aspect-square rounded-2xl overflow-hidden"
               style={{ background: 'linear-gradient(145deg, #FFF8F1 0%, #F3E6CF 60%, #EDD9B0 100%)' }}
             >
-              {/* decorative rings */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-[75%] h-[75%] rounded-full border border-[#F97316]/10" />
-                <div className="absolute w-[55%] h-[55%] rounded-full border border-[#F97316]/08" />
-              </div>
-              {/* product placeholder label */}
-              <div className="absolute bottom-7 left-7 right-7">
-                <div className="h-0.5 w-10 bg-[#F97316] rounded-full mb-3" />
-                <p className="text-[#4A2A1A] font-bold text-lg">Acha Fonio</p>
-                <p className="text-[#7A736C] text-xs mt-0.5 tracking-wide uppercase">Premium West African Grain</p>
-              </div>
-              {/* badge */}
-              <span className="absolute top-5 right-5 bg-[#F97316] text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">
-                New
-              </span>
+              <img
+                src={SIZES[selectedSize].image}
+                alt={`AchaBox premium African fonio pouch, ${SIZES[selectedSize].label}`}
+                className="h-full w-full object-contain"
+              />
             </div>
           </Reveal>
 
@@ -121,7 +118,7 @@ export default function ProductsSection() {
                 <span className="text-[#3D2418] font-bold text-3xl tracking-tight">
                   {SIZES[selectedSize].price}
                 </span>
-                <span className="text-[#7A736C] text-sm mb-1">incl. VAT · free shipping over £30</span>
+                <span className="text-[#7A736C] text-sm mb-1">All prices in Nigerian naira</span>
               </div>
             </Reveal>
 
@@ -163,10 +160,15 @@ export default function ProductsSection() {
           </div>
         </div>
 
-      </div>
+        </div>
+      </section>
+
+      <UpcomingProductsSection />
+      <GallerySection />
+      <RecipeSection />
 
       {/* ── Provenance quote ───────────────────────────────── */}
-      <div className="bg-[#FFF8F1] border-t border-[#EDD9B0]/60 py-20 lg:py-28">
+      <section className="bg-[#FFF8F1] border-t border-[#EDD9B0]/60 py-20 lg:py-28">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <Reveal>
             <p className="text-[#C9965A] text-xs font-bold tracking-[0.20em] uppercase mb-7">
@@ -194,8 +196,7 @@ export default function ProductsSection() {
             </div>
           </Reveal>
         </div>
-      </div>
-
-    </section>
+      </section>
+    </>
   )
 }

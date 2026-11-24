@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import heroImg from '../assets/hero.png?format=webp&quality=80&width=1400'
 import { CheckCircleIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 
@@ -51,12 +52,12 @@ export default function Hero() {
                 <ShoppingBagIcon className="w-5 h-5" />
                 Shop Acha
               </a>
-              <a
-                href="#benefits"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center border-2 border-[#4A2A1A]/25 hover:border-[#4A2A1A] text-[#4A2A1A] hover:bg-[#4A2A1A] hover:text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 text-base hover:-translate-y-0.5 active:translate-y-0"
               >
-                Explore Benefits
-              </a>
+                Contact
+              </Link>
             </div>
 
             {/* Trust points */}

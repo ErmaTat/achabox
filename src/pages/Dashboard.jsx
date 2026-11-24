@@ -60,7 +60,7 @@ const ORDERS = [
     date: 'May 22, 2026',
     item: 'Acha Pantry Pack',
     detail: '2 bags of whole natural fonio seeds',
-    total: '$34.00',
+    total: '₦34.00',
     eta: 'Ships tomorrow',
   },
   {
@@ -69,7 +69,7 @@ const ORDERS = [
     date: 'May 8, 2026',
     item: 'Starter Box',
     detail: 'Fonio seeds, recipe card, and storage pouch',
-    total: '$24.00',
+    total: '₦24.00',
     eta: 'Delivered May 11',
   },
   {
@@ -78,7 +78,7 @@ const ORDERS = [
     date: 'April 16, 2026',
     item: 'Family Refill',
     detail: '4 bags for weekly breakfasts and grain bowls',
-    total: '$58.00',
+    total: '₦58.00',
     eta: 'Delivered April 19',
   },
 ]
